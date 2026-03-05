@@ -1,325 +1,169 @@
-const PLACES = [
-  {
-    id: "prague",
-    label: "P",
-    name: "Prague",
-    lon: 14.4378,
-    lat: 50.0755,
-    clues: [
-      "This city has a famous medieval astronomical clock.",
-      "The Vltava River flows through it.",
-      "Charles Bridge and Prague Castle are key landmarks here."
-    ],
-    facts: [
-      "Prague Castle is one of the largest ancient castle complexes in the world.",
-      "The historic center of Prague is a UNESCO World Heritage Site."
-    ]
-  },
-  {
-    id: "brno",
-    label: "B",
-    name: "Brno",
-    lon: 16.6068,
-    lat: 49.1951,
-    clues: [
-      "It is the largest city in Moravia.",
-      "This city hosts the MotoGP race circuit nearby in Masaryk Circuit.",
-      "The Cathedral of St. Peter and Paul overlooks its old center."
-    ],
-    facts: [
-      "Brno is home to Villa Tugendhat, a UNESCO-listed modernist building.",
-      "The city has a quirky local tradition of a dragon in the Old Town Hall."
-    ]
-  },
-  {
-    id: "ostrava",
-    label: "O",
-    name: "Ostrava",
-    lon: 18.2625,
-    lat: 49.8209,
-    clues: [
-      "Historically, this city was strongly connected to coal and steel.",
-      "The Lower Vitkovice industrial area has been transformed into a culture space.",
-      "It is close to the Polish border in the northeast of the country."
-    ],
-    facts: [
-      "Colours of Ostrava is one of Central Europe's largest music festivals.",
-      "Its industrial heritage is a major part of modern Czech identity."
-    ]
-  },
-  {
-    id: "plzen",
-    label: "PL",
-    name: "Plzen",
-    lon: 13.3776,
-    lat: 49.7384,
-    clues: [
-      "This city gave the world a globally famous style of pale lager.",
-      "The Pilsner Urquell brewery is located here.",
-      "It lies in western Bohemia."
-    ],
-    facts: [
-      "The term 'pilsner' comes from this city.",
-      "Plzen has one of the largest synagogue buildings in Europe."
-    ]
-  },
-  {
-    id: "liberec",
-    label: "L",
-    name: "Liberec",
-    lon: 15.0543,
-    lat: 50.7671,
-    clues: [
-      "It sits near the Jizera Mountains.",
-      "A distinctive TV tower and hotel stand on Jested mountain nearby.",
-      "This city is in the north, close to Germany and Poland."
-    ],
-    facts: [
-      "Jested is one of the most iconic pieces of Czech modern architecture.",
-      "Liberec has long been an important textile and industrial center."
-    ]
-  },
-  {
-    id: "ceske_budejovice",
-    label: "CB",
-    name: "Ceske Budejovice",
-    lon: 14.4747,
-    lat: 48.974,
-    clues: [
-      "Its German name historically inspired a famous beer brand name abroad.",
-      "It lies near the Vltava and Malse rivers.",
-      "You can reach Cesky Krumlov from here as a popular day trip."
-    ],
-    facts: [
-      "The city's main square is one of the largest in Czechia.",
-      "South Bohemia around this city is known for ponds and fish farming traditions."
-    ]
-  },
-  {
-    id: "olomouc",
-    label: "OL",
-    name: "Olomouc",
-    lon: 17.2518,
-    lat: 49.5938,
-    clues: [
-      "A monumental Holy Trinity Column here is UNESCO-listed.",
-      "It is a historic university city in Moravia.",
-      "Its famous local cheese is called Olomoucke tvaruzky."
-    ],
-    facts: [
-      "Olomouc has one of the oldest universities in Central Europe.",
-      "The astronomical clock in Olomouc has a unique socialist-realist redesign."
-    ]
-  },
-  {
-    id: "karlovy_vary",
-    label: "KV",
-    name: "Karlovy Vary",
-    lon: 12.8712,
-    lat: 50.2319,
-    clues: [
-      "This spa city is famous for thermal springs.",
-      "An annual international film festival is held here.",
-      "It is in western Bohemia and known for elegant colonnades."
-    ],
-    facts: [
-      "Karlovy Vary has been a wellness destination for centuries.",
-      "Its mineral water tradition is one of the country's best-known cultural exports."
-    ]
-  },
-  {
-    id: "hradec_kralove",
-    label: "HK",
-    name: "Hradec Kralove",
-    lon: 15.8328,
-    lat: 50.2092,
-    clues: [
-      "This city is at the confluence of the Elbe and Orlice rivers.",
-      "It is known for early 20th-century modern architecture.",
-      "It lies east of Prague in Bohemia."
-    ],
-    facts: [
-      "Hradec Kralove is often called a 'salon of the republic' for its urban planning.",
-      "Its nearby region offers easy access to the Krkonose Mountains."
-    ]
-  },
-  {
-    id: "zlin",
-    label: "Z",
-    name: "Zlin",
-    lon: 17.6671,
-    lat: 49.2244,
-    clues: [
-      "This city is strongly tied to the Bata shoe company.",
-      "Its urban layout reflects functionalist architecture.",
-      "It is in southeastern Moravia."
-    ],
-    facts: [
-      "Zlin became a model industrial city in the 20th century.",
-      "The city is still known for design and architecture inspired by Bata principles."
-    ]
-  }
-];
+const COURSE = {
+  title: "Life in the Czech Republic",
+  language: "English",
+  target_audience: "Foreign workers",
+  modules: [
+    {
+      id: "geography",
+      title: "Geography",
+      illustration: "images/czech_map.png",
+      facts: [
+        "The Czech Republic is located in Central Europe.",
+        "It borders Germany, Austria, Slovakia and Poland.",
+        "The country has forests, rivers, hills and mountains.",
+        "The highest mountain is Snezka (1603 m).",
+        "Major rivers include the Vltava, Elbe and Morava."
+      ],
+      quiz: {
+        question: "Where is the Czech Republic located?",
+        options: ["Central Europe", "South America", "Asia"],
+        answer: 0
+      }
+    },
+    {
+      id: "cities",
+      title: "Major Cities",
+      illustration: "images/prague_city.png",
+      facts: [
+        "Prague is the capital and largest city.",
+        "Brno is the second largest city and an important university center.",
+        "Ostrava is known for industry.",
+        "Plzen is famous for Pilsner beer."
+      ],
+      quiz: {
+        question: "What is the capital of the Czech Republic?",
+        options: ["Brno", "Prague", "Ostrava"],
+        answer: 1
+      }
+    },
+    {
+      id: "architecture",
+      title: "Architecture",
+      illustration: "images/czech_architecture.png",
+      facts: [
+        "The Czech Republic has many castles and chateaux.",
+        "Historic towns often have colorful houses.",
+        "Baroque churches are common.",
+        "Many buildings are hundreds of years old."
+      ],
+      quiz: {
+        question: "What historic buildings are common in the Czech Republic?",
+        options: ["Castles and chateaux", "Pyramids", "Skyscrapers only"],
+        answer: 0
+      }
+    },
+    {
+      id: "nature",
+      title: "Nature",
+      illustration: "images/czech_mountains.png",
+      facts: [
+        "Popular mountain regions include Krkonose and Sumava.",
+        "Many people enjoy hiking and cycling.",
+        "Winter sports like skiing are popular.",
+        "Forests cover a large part of the country."
+      ],
+      quiz: {
+        question: "Which activity is popular in Czech mountains?",
+        options: ["Surfing", "Skiing", "Desert safari"],
+        answer: 1
+      }
+    },
+    {
+      id: "beer",
+      title: "Beer and Food",
+      illustration: "images/czech_beer.png",
+      facts: [
+        "The Czech Republic is famous for beer.",
+        "Czech people drink the most beer per person in the world.",
+        "Popular dishes include svickova, goulash and dumplings.",
+        "Beer is an important part of Czech culture."
+      ],
+      quiz: {
+        question: "What drink is the Czech Republic famous for?",
+        options: ["Beer", "Coffee", "Wine"],
+        answer: 0
+      }
+    },
+    {
+      id: "industry",
+      title: "Industry",
+      illustration: "images/czech_factory.png",
+      facts: [
+        "Manufacturing is an important part of the Czech economy.",
+        "Automotive production is a major industry.",
+        "Engineering and machinery are also strong sectors.",
+        "Many international companies operate factories in the country."
+      ],
+      quiz: {
+        question: "Which industry is strong in the Czech Republic?",
+        options: ["Automotive production", "Space rockets", "Oil drilling"],
+        answer: 0
+      }
+    },
+    {
+      id: "spa",
+      title: "Spa Towns",
+      illustration: "images/czech_spa.png",
+      facts: [
+        "The Czech Republic has famous spa towns.",
+        "Karlovy Vary is the most famous spa city.",
+        "People visit for mineral water and health treatments.",
+        "Spa towns have beautiful historic architecture."
+      ],
+      quiz: {
+        question: "Which spa town is famous in the Czech Republic?",
+        options: ["Karlovy Vary", "Berlin", "Vienna"],
+        answer: 0
+      }
+    },
+    {
+      id: "daily_life",
+      title: "Daily Life",
+      illustration: "images/czech_daily_life.png",
+      facts: [
+        "Public transport is reliable and widely used.",
+        "People commonly use trains, buses and trams.",
+        "Most shops open around 8:00.",
+        "The Czech Republic is considered a safe country."
+      ],
+      quiz: {
+        question: "What transport is common in Czech cities?",
+        options: ["Trams", "Camels", "Gondolas"],
+        answer: 0
+      }
+    }
+  ]
+};
 
-const LEARN_CARDS = [
-  {
-    title: "Castles and Heritage",
-    text: "Czechia has over 2,000 castles, chateaux, and ruins. Prague Castle is one of the largest castle complexes in the world.",
-    image: "assets/learn/castle.png",
-    alt: "Simple castle illustration"
-  },
-  {
-    title: "Beer Culture",
-    text: "The pilsner style was born in Plzen. Czech beer culture is strong and deeply tied to local identity.",
-    image: "assets/learn/beer.png",
-    alt: "Simple beer mug illustration"
-  },
-  {
-    title: "Spa Traditions",
-    text: "Towns like Karlovy Vary are known for thermal springs and spa traditions that date back centuries.",
-    image: "assets/learn/spa.png",
-    alt: "Simple spa spring illustration"
-  },
-  {
-    title: "Industry and Innovation",
-    text: "Cities such as Ostrava and Zlin helped shape modern Czech industry through steel, coal, and manufacturing.",
-    image: "assets/learn/industry.png",
-    alt: "Simple factory illustration"
-  },
-  {
-    title: "Nature and Mountains",
-    text: "From Krkonose to Sumava, Czechia has rich mountain landscapes, forests, and protected natural areas.",
-    image: "assets/learn/mountains.png",
-    alt: "Simple mountains illustration"
-  },
-  {
-    title: "Modern Architecture",
-    text: "From functionalism in Brno and Zlin to landmarks like Jested, Czech architecture blends tradition and modern design.",
-    image: "assets/learn/architecture.png",
-    alt: "Simple modern building illustration"
-  }
-];
+const QUIZ_POINTS = 10;
+const LEARN_IMAGE_BY_KEY = {
+  architecture: "assets/learn/architecture.png",
+  beer: "assets/learn/beer.png",
+  castle: "assets/learn/castle.png",
+  industry: "assets/learn/industry.png",
+  mountains: "assets/learn/mountains.png",
+  spa: "assets/learn/spa.png"
+};
 
-const CZECH_BORDER_COORDS = [
-  [14.570718214586066, 51.002339382524276],
-  [14.307013380600637, 51.117267767941414],
-  [14.056227654688314, 50.9269176295943],
-  [13.338131951560285, 50.73323436136428],
-  [12.966836785543194, 50.484076443069085],
-  [12.240111118222671, 50.266337795607285],
-  [12.415190870827473, 49.96912079528057],
-  [12.521024204161193, 49.547415269562734],
-  [13.031328973043431, 49.30706818297324],
-  [13.595945672264437, 48.87717194273715],
-  [14.338897739324722, 48.5553052842072],
-  [14.901447381254057, 48.964401760445824],
-  [15.253415561593982, 49.03907420510758],
-  [16.02964725105022, 48.73389903420793],
-  [16.499282667718774, 48.78580801044511],
-  [16.960288120194576, 48.5969823268506],
-  [17.101984897538898, 48.816968899117114],
-  [17.545006951577108, 48.80001902932537],
-  [17.88648481616181, 48.90347524677371],
-  [17.913511590250465, 48.996492824899086],
-  [18.104972771891852, 49.04398346617531],
-  [18.170498488037964, 49.271514797556435],
-  [18.399993523846177, 49.31500051533004],
-  [18.554971144289482, 49.49501536721878],
-  [18.853144158613617, 49.49622976337764],
-  [18.392913852622172, 49.98862864847075],
-  [18.17042469691688, 50.049038397819956],
-  [17.64944502123899, 50.049038397819956],
-  [17.55456709155112, 50.36214590107641],
-  [16.868769158605655, 50.47397370055603],
-  [16.719475945714436, 50.21574656839354],
-  [16.176253289462267, 50.42260732685791],
-  [16.23862674323857, 50.69773265237984],
-  [15.490972120839729, 50.78472992614321],
-  [15.01699588385867, 51.10667409932158],
-  [14.570718214586066, 51.002339382524276]
-];
-
-const MAP_VIEWBOX_WIDTH = 620;
-const MAP_VIEWBOX_HEIGHT = 420;
-const MAP_PADDING = 24;
-
-const MAX_ROUNDS = 6;
-const POINTS_CORRECT = 30;
-const PENALTY_REVEAL = 5;
-const PENALTY_WRONG = 4;
-
+let phase = "learn";
+let moduleIndex = 0;
 let score = 0;
-let round = 1;
-let usedPlaces = [];
-let currentPlace = null;
-let revealedCount = 0;
-let isRoundLocked = false;
-let currentPhase = "learn";
-let learnIndex = 0;
-
+let answered = false;
 let soundEnabled = true;
 let audioContext = null;
 let lastScore = 0;
 
-const scoreEl = document.getElementById("score");
-const roundEl = document.getElementById("round");
-const roundTotalEl = document.getElementById("roundTotal");
 const panelTitleEl = document.getElementById("panelTitle");
 const introTextEl = document.getElementById("introText");
 const clueCardsEl = document.getElementById("clueCards");
 const statusBoxEl = document.getElementById("statusBox");
-const factsBoxEl = document.getElementById("factsBox");
-const factsListEl = document.getElementById("factsList");
 const revealBtnEl = document.getElementById("revealBtn");
 const nextBtnEl = document.getElementById("nextBtn");
-const markerLayerEl = document.getElementById("markerLayer");
+const factsBoxEl = document.getElementById("factsBox");
+const scoreEl = document.getElementById("score");
+const roundEl = document.getElementById("round");
+const roundTotalEl = document.getElementById("roundTotal");
 const soundToggleEl = document.getElementById("soundToggle");
-const mapWrapEl = document.getElementById("mapWrap");
-const fxLayerEl = document.getElementById("fxLayer");
-const countryShapeEl = document.getElementById("countryShape");
-
-let projectPoint = null;
-
-function buildProjection(points, width, height, padding) {
-  const meanLat = points.reduce((sum, point) => sum + point[1], 0) / points.length;
-  const xScale = Math.cos((meanLat * Math.PI) / 180);
-  const projected = points.map(([lon, lat]) => [lon * xScale, lat]);
-  const xs = projected.map((point) => point[0]);
-  const ys = projected.map((point) => point[1]);
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
-
-  const drawWidth = width - padding * 2;
-  const drawHeight = height - padding * 2;
-  const scale = Math.min(drawWidth / (maxX - minX), drawHeight / (maxY - minY));
-  const offsetX = (width - (maxX - minX) * scale) / 2;
-  const offsetY = (height - (maxY - minY) * scale) / 2;
-
-  return (lon, lat) => {
-    const x = offsetX + (lon * xScale - minX) * scale;
-    const y = offsetY + (maxY - lat) * scale;
-    return [x, y];
-  };
-}
-
-function drawCountryShape() {
-  projectPoint = buildProjection(CZECH_BORDER_COORDS, MAP_VIEWBOX_WIDTH, MAP_VIEWBOX_HEIGHT, MAP_PADDING);
-  const pathD = CZECH_BORDER_COORDS.map(([lon, lat], index) => {
-    const [x, y] = projectPoint(lon, lat);
-    return `${index === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
-  }).join(" ");
-
-  countryShapeEl.setAttribute("d", `${pathD} Z`);
-}
-
-function getProjectedCityPosition(place) {
-  if (!projectPoint) {
-    return [0, 0];
-  }
-  return projectPoint(place.lon, place.lat);
-}
 
 function getAudioContext() {
   if (!audioContext) {
@@ -368,13 +212,7 @@ function playSound(effect) {
     return;
   }
 
-  if (effect === "roundStart") {
-    playTone(330, 0.08, "sine", 0.045);
-    playTone(415, 0.1, "sine", 0.04, 0.07);
-    return;
-  }
-
-  if (effect === "reveal") {
+  if (effect === "next") {
     playTone(500, 0.06, "triangle", 0.035);
     playTone(640, 0.06, "triangle", 0.03, 0.06);
     return;
@@ -406,368 +244,215 @@ function pulseElement(element, className) {
   element.classList.add(className);
 }
 
-function updateSoundButton() {
-  soundToggleEl.textContent = soundEnabled ? "Sound: On" : "Sound: Off";
-  soundToggleEl.setAttribute("aria-pressed", String(soundEnabled));
-}
-
-function runMapFeedback(type) {
-  mapWrapEl.classList.remove("flash-correct", "flash-wrong");
-  void mapWrapEl.offsetWidth;
-  mapWrapEl.classList.add(type === "correct" ? "flash-correct" : "flash-wrong");
-}
-
-function spawnBurst(x, y) {
-  const colors = ["#f28627", "#ffd166", "#3ea86e", "#2d709c", "#d7422a"];
-  for (let i = 0; i < 18; i += 1) {
-    const piece = document.createElement("span");
-    piece.className = "fx-burst";
-    piece.style.left = `${(x / MAP_VIEWBOX_WIDTH) * 100}%`;
-    piece.style.top = `${(y / MAP_VIEWBOX_HEIGHT) * 100}%`;
-    piece.style.setProperty("--piece-color", colors[i % colors.length]);
-    piece.style.setProperty("--dx", `${(Math.random() * 100 - 50).toFixed(1)}px`);
-    piece.style.setProperty("--dy", `${(Math.random() * 100 - 50).toFixed(1)}px`);
-    fxLayerEl.appendChild(piece);
-    window.setTimeout(() => piece.remove(), 720);
-  }
-}
-
-function animateRoundEntry() {
-  document.querySelectorAll(".panel").forEach((panel) => {
-    panel.classList.remove("panel-enter");
-    void panel.offsetWidth;
-    panel.classList.add("panel-enter");
-  });
-}
-
-function pickUnusedPlace() {
-  const pool = PLACES.filter((place) => !usedPlaces.includes(place.id));
-  const randomIndex = Math.floor(Math.random() * pool.length);
-  return pool[randomIndex];
-}
-
-function updateScoreboard() {
-  const scoreChanged = lastScore !== score;
-  scoreEl.textContent = String(score);
-
-  if (currentPhase === "quiz") {
-    roundEl.textContent = String(round);
-    roundTotalEl.textContent = String(MAX_ROUNDS);
-  } else {
-    roundEl.textContent = "-";
-    roundTotalEl.textContent = "-";
-  }
-
-  if (scoreChanged) {
-    pulseElement(scoreEl, "score-pop");
-  }
-  lastScore = score;
-}
-
 function setStatus(message, variant = "") {
   statusBoxEl.textContent = message;
   statusBoxEl.className = `status${variant ? ` ${variant}` : ""}`;
   pulseElement(statusBoxEl, "pulse");
 }
 
-function resetFacts() {
-  factsListEl.innerHTML = "";
-  factsBoxEl.classList.add("hidden");
+function updateSoundButton() {
+  soundToggleEl.textContent = soundEnabled ? "Sound: On" : "Sound: Off";
+  soundToggleEl.setAttribute("aria-pressed", String(soundEnabled));
 }
 
-function setLearningMode(enabled) {
-  mapWrapEl.classList.toggle("learning-mode", enabled);
-  revealBtnEl.classList.toggle("hidden", enabled || currentPhase !== "quiz");
+function updateScoreboard() {
+  scoreEl.textContent = String(score);
+  if (phase === "done") {
+    roundEl.textContent = "-";
+    roundTotalEl.textContent = "-";
+  } else {
+    roundEl.textContent = String(moduleIndex + 1);
+    roundTotalEl.textContent = String(COURSE.modules.length);
+  }
+
+  if (lastScore !== score) {
+    pulseElement(scoreEl, "score-pop");
+  }
+  lastScore = score;
 }
 
-function renderLearningCard() {
-  const card = LEARN_CARDS[learnIndex];
+function resolveModuleIllustration(module) {
+  const haystack = `${module.id} ${module.title} ${module.illustration}`.toLowerCase();
+
+  if (haystack.includes("architecture")) {
+    return LEARN_IMAGE_BY_KEY.architecture;
+  }
+
+  if (haystack.includes("beer") || haystack.includes("food")) {
+    return LEARN_IMAGE_BY_KEY.beer;
+  }
+
+  if (haystack.includes("industry") || haystack.includes("factory")) {
+    return LEARN_IMAGE_BY_KEY.industry;
+  }
+
+  if (
+    haystack.includes("nature") ||
+    haystack.includes("mountain") ||
+    haystack.includes("geography") ||
+    haystack.includes("map")
+  ) {
+    return LEARN_IMAGE_BY_KEY.mountains;
+  }
+
+  if (haystack.includes("spa")) {
+    return LEARN_IMAGE_BY_KEY.spa;
+  }
+
+  if (haystack.includes("city") || haystack.includes("daily")) {
+    return LEARN_IMAGE_BY_KEY.castle;
+  }
+
+  return LEARN_IMAGE_BY_KEY.castle;
+}
+
+function renderLearningModule() {
+  const module = COURSE.modules[moduleIndex];
+  const illustration = resolveModuleIllustration(module);
+  panelTitleEl.textContent = `${module.title} - Learn`;
+  introTextEl.textContent = `${COURSE.title} for ${COURSE.target_audience}.`;
+
+  const factsHtml = module.facts.map((fact) => `<li>${fact}</li>`).join("");
   clueCardsEl.innerHTML = `
     <article class="learn-card panel-enter">
-      <img src="${card.image}" alt="${card.alt}" loading="eager" />
-      <h3>${card.title}</h3>
-      <p>${card.text}</p>
+      <img src="${illustration}" alt="${module.title} illustration" loading="eager" />
+      <h3>${module.title}</h3>
+      <p>Read these key facts before the test:</p>
+      <ul>${factsHtml}</ul>
     </article>
   `;
 
+  nextBtnEl.textContent = moduleIndex === COURSE.modules.length - 1 ? "Start Quiz" : "Next Topic";
   nextBtnEl.disabled = false;
-  nextBtnEl.textContent = learnIndex === LEARN_CARDS.length - 1 ? "Start Quiz" : "Next Fact";
-}
-
-function startLearningPhase() {
-  currentPhase = "learn";
-  learnIndex = 0;
-  round = 1;
-  score = 0;
-  usedPlaces = [];
-  isRoundLocked = true;
-
-  panelTitleEl.textContent = "Learn About Czechia";
-  introTextEl.textContent = "Quick facts first. When you are ready, continue to the map quiz.";
-
-  setLearningMode(true);
-  resetFacts();
-  clearMarkerStates();
-  renderLearningCard();
-  setStatus("Learning mode: read a fact and continue.");
-  updateScoreboard();
-  playSound("roundStart");
-}
-
-function advanceLearning() {
-  if (currentPhase !== "learn") {
-    return;
-  }
-
-  playSound("reveal");
-  learnIndex += 1;
-  if (learnIndex >= LEARN_CARDS.length) {
-    startQuizPhase();
-    return;
-  }
-
-  renderLearningCard();
-  setStatus(`Fact ${learnIndex + 1} of ${LEARN_CARDS.length}.`);
-}
-
-function renderClues() {
-  clueCardsEl.innerHTML = "";
-
-  currentPlace.clues.forEach((clue, index) => {
-    const card = document.createElement("div");
-    const classes = ["clue-card", index < revealedCount ? "revealed" : "locked"];
-    if (index === revealedCount - 1) {
-      classes.push("new-reveal");
-    }
-    card.className = classes.join(" ");
-    card.textContent = index < revealedCount ? clue : `Clue ${index + 1} is locked.`;
-    clueCardsEl.appendChild(card);
-  });
-}
-
-function renderMarkers() {
-  markerLayerEl.innerHTML = "";
-
-  PLACES.forEach((place) => {
-    const [x, y] = getProjectedCityPosition(place);
-    const marker = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    marker.classList.add("marker");
-    marker.dataset.id = place.id;
-    marker.setAttribute("transform", `translate(${x}, ${y})`);
-
-    const halo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    halo.classList.add("marker-halo");
-    halo.setAttribute("r", "13");
-
-    const core = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    core.classList.add("marker-core");
-    core.setAttribute("r", "8.5");
-
-    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    label.classList.add("marker-label");
-    label.textContent = place.label;
-
-    marker.appendChild(halo);
-    marker.appendChild(core);
-    marker.appendChild(label);
-
-    marker.addEventListener("click", () => handleGuess(place.id));
-    markerLayerEl.appendChild(marker);
-  });
-}
-
-function clearMarkerStates() {
-  markerLayerEl.querySelectorAll(".marker").forEach((marker) => {
-    marker.classList.remove("active", "correct", "wrong");
-  });
-}
-
-function revealNextClue() {
-  if (currentPhase !== "quiz" || isRoundLocked) {
-    return;
-  }
-
-  if (revealedCount >= currentPlace.clues.length) {
-    setStatus("All clues are revealed. Pick your answer on the map.");
-    return;
-  }
-
-  revealedCount += 1;
-  playSound("reveal");
-  score = Math.max(0, score - PENALTY_REVEAL);
-  updateScoreboard();
-  renderClues();
-
-  if (revealedCount === currentPlace.clues.length) {
-    setStatus("All clues unlocked. Click the correct marker.");
-  } else {
-    setStatus(`Clue ${revealedCount} unlocked. Keep going or make a guess.`);
-  }
-}
-
-function showFacts(place) {
-  factsListEl.innerHTML = "";
-  place.facts.forEach((fact) => {
-    const item = document.createElement("li");
-    item.textContent = fact;
-    factsListEl.appendChild(item);
-  });
-  factsBoxEl.classList.remove("hidden");
-}
-
-function finishRound() {
-  isRoundLocked = true;
-  revealBtnEl.disabled = true;
-  nextBtnEl.disabled = false;
-
-  if (round >= MAX_ROUNDS) {
-    nextBtnEl.textContent = "See Final Result";
-  } else {
-    nextBtnEl.textContent = "Next Round";
-  }
-}
-
-function handleGuess(placeId) {
-  if (currentPhase !== "quiz" || isRoundLocked) {
-    return;
-  }
-
-  if (revealedCount === 0) {
-    playSound("wrong");
-    setStatus("Reveal at least one clue before your first guess.", "error");
-    return;
-  }
-
-  clearMarkerStates();
-  const selectedMarker = markerLayerEl.querySelector(`[data-id='${placeId}']`);
-  selectedMarker?.classList.add("active");
-
-  if (placeId === currentPlace.id) {
-    selectedMarker?.classList.add("correct");
-
-    const bonus = POINTS_CORRECT + Math.max(0, (3 - revealedCount) * 4);
-    score += bonus;
-    updateScoreboard();
-
-    playSound("correct");
-    runMapFeedback("correct");
-    const [burstX, burstY] = getProjectedCityPosition(currentPlace);
-    spawnBurst(burstX, burstY);
-    setStatus(`Correct! It was ${currentPlace.name}. +${bonus} points.`, "success");
-    showFacts(currentPlace);
-    finishRound();
-    return;
-  }
-
-  selectedMarker?.classList.add("wrong");
-  score = Math.max(0, score - PENALTY_WRONG);
-  updateScoreboard();
-  playSound("wrong");
-  runMapFeedback("wrong");
-  setStatus("Not this one. Reveal another clue or try a different marker.", "error");
-}
-
-function startRound() {
-  if (currentPhase !== "quiz") {
-    return;
-  }
-
-  if (round > MAX_ROUNDS) {
-    showFinalScreen();
-    return;
-  }
-
-  currentPlace = pickUnusedPlace();
-  usedPlaces.push(currentPlace.id);
-
-  revealedCount = 0;
-  isRoundLocked = false;
-  revealBtnEl.disabled = false;
-  nextBtnEl.disabled = true;
-
-  resetFacts();
-  clearMarkerStates();
-  animateRoundEntry();
-  renderClues();
-  playSound("roundStart");
-  setStatus("Quiz started. Reveal a clue to begin.");
+  revealBtnEl.classList.add("hidden");
+  factsBoxEl.classList.add("hidden");
+  setStatus(`Learning module ${moduleIndex + 1} of ${COURSE.modules.length}.`);
   updateScoreboard();
 }
 
-function startQuizPhase() {
-  currentPhase = "quiz";
-  round = 1;
-  usedPlaces = [];
+function renderQuizModule() {
+  const module = COURSE.modules[moduleIndex];
+  const illustration = resolveModuleIllustration(module);
+  answered = false;
 
-  panelTitleEl.textContent = "Guess the Place";
-  introTextEl.textContent = "Reveal clues one by one, then click the correct marker on the map.";
+  panelTitleEl.textContent = `${module.title} - Quiz`;
+  introTextEl.textContent = "Choose one correct answer.";
 
-  setLearningMode(false);
-  nextBtnEl.disabled = true;
-  nextBtnEl.textContent = "Next Round";
-  revealBtnEl.disabled = false;
-  animateRoundEntry();
-  startRound();
-}
-
-function showFinalScreen() {
-  currentPhase = "finished";
+  const optionsHtml = module.quiz.options
+    .map((option, index) => `<button class="quiz-option" data-index="${index}">${option}</button>`)
+    .join("");
 
   clueCardsEl.innerHTML = `
-    <div class="clue-card revealed">
-      Quiz finished! You explored ${MAX_ROUNDS} Czech locations.
-    </div>
-    <div class="clue-card revealed">
-      Final score: ${score}
-    </div>
-    <div class="clue-card revealed">
-      Press "Play Again" to restart learning + quiz.
-    </div>
+    <article class="learn-card panel-enter">
+      <img src="${illustration}" alt="${module.title} illustration" loading="eager" />
+      <h3 class="quiz-question">${module.quiz.question}</h3>
+      <div class="quiz-options">${optionsHtml}</div>
+    </article>
   `;
 
-  panelTitleEl.textContent = "Quiz Complete";
-  introTextEl.textContent = "You can replay from the learning cards anytime.";
+  clueCardsEl.querySelectorAll(".quiz-option").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (answered) {
+        return;
+      }
 
-  revealBtnEl.disabled = true;
+      answered = true;
+      const selectedIndex = Number(button.dataset.index);
+      const correctIndex = module.quiz.answer;
+      const optionButtons = clueCardsEl.querySelectorAll(".quiz-option");
+
+      optionButtons.forEach((optionButton, idx) => {
+        optionButton.disabled = true;
+        if (idx === correctIndex) {
+          optionButton.classList.add("correct");
+        }
+      });
+
+      if (selectedIndex === correctIndex) {
+        score += QUIZ_POINTS;
+        updateScoreboard();
+        playSound("correct");
+        setStatus("Correct answer.", "success");
+      } else {
+        button.classList.add("wrong");
+        playSound("wrong");
+        setStatus("Incorrect. The highlighted answer is correct.", "error");
+      }
+
+      nextBtnEl.disabled = false;
+    });
+  });
+
+  nextBtnEl.textContent = moduleIndex === COURSE.modules.length - 1 ? "Finish Course" : "Next Module";
+  nextBtnEl.disabled = true;
   revealBtnEl.classList.add("hidden");
-  nextBtnEl.disabled = false;
-  nextBtnEl.textContent = "Play Again";
-  playSound("final");
-  setStatus("Great run. Ready for another Czechia challenge?", "success");
-  resetFacts();
-  clearMarkerStates();
+  factsBoxEl.classList.add("hidden");
+  setStatus("Select your answer to continue.");
   updateScoreboard();
 }
 
-function resetGame() {
-  startLearningPhase();
+function renderFinal() {
+  phase = "done";
+  panelTitleEl.textContent = "Course Complete";
+  introTextEl.textContent = `Language: ${COURSE.language}. Audience: ${COURSE.target_audience}.`;
+  clueCardsEl.innerHTML = `
+    <div class="clue-card revealed">You completed all ${COURSE.modules.length} modules.</div>
+    <div class="clue-card revealed">Final score: ${score}</div>
+    <div class="clue-card revealed">Press \"Restart Course\" to run it again.</div>
+  `;
+
+  nextBtnEl.textContent = "Restart Course";
+  nextBtnEl.disabled = false;
+  revealBtnEl.classList.add("hidden");
+  playSound("final");
+  setStatus("Great work. Course completed.", "success");
+  updateScoreboard();
 }
 
-revealBtnEl.addEventListener("click", revealNextClue);
+function startLearning() {
+  phase = "learn";
+  moduleIndex = 0;
+  score = 0;
+  renderLearningModule();
+}
+
+function startQuiz() {
+  phase = "quiz";
+  moduleIndex = 0;
+  renderQuizModule();
+}
 
 nextBtnEl.addEventListener("click", () => {
-  if (currentPhase === "learn") {
-    advanceLearning();
-    return;
-  }
+  playSound("next");
 
-  if (currentPhase === "quiz") {
-    if (!isRoundLocked) {
+  if (phase === "learn") {
+    if (moduleIndex < COURSE.modules.length - 1) {
+      moduleIndex += 1;
+      renderLearningModule();
       return;
     }
 
-    if (round >= MAX_ROUNDS) {
-      showFinalScreen();
-      return;
-    }
-
-    round += 1;
-    startRound();
+    startQuiz();
     return;
   }
 
-  if (currentPhase === "finished") {
-    resetGame();
+  if (phase === "quiz") {
+    if (!answered) {
+      return;
+    }
+
+    if (moduleIndex < COURSE.modules.length - 1) {
+      moduleIndex += 1;
+      renderQuizModule();
+      return;
+    }
+
+    renderFinal();
+    return;
+  }
+
+  if (phase === "done") {
+    startLearning();
   }
 });
 
@@ -780,6 +465,4 @@ soundToggleEl.addEventListener("click", () => {
 });
 
 updateSoundButton();
-drawCountryShape();
-renderMarkers();
-startLearningPhase();
+startLearning();
